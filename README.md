@@ -1,6 +1,13 @@
 # SER - Machine Learning Algorithms Library
 
+[![PyPI version](https://badge.fury.io/py/ser-algorithms.svg)](https://badge.fury.io/py/ser-algorithms)
+[![Python Version](https://img.shields.io/pypi/pyversions/ser-algorithms.svg)](https://pypi.org/project/ser-algorithms/)
+[![License](https://img.shields.io/github/license/Bowenislandsong/SER.svg)](https://github.com/Bowenislandsong/SER/blob/main/LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-github%20pages-blue)](https://bowenislandsong.github.io/SER/)
+
 A Python library providing advanced machine learning algorithms including distributed and federated implementations, similar to scikit-learn.
+
+📖 **[Full Documentation](https://bowenislandsong.github.io/SER/)**
 
 ## Features
 
@@ -9,6 +16,31 @@ A Python library providing advanced machine learning algorithms including distri
 - **Federated SVD**: Privacy-preserving SVD that keeps data on local nodes while computing global decomposition
 
 ## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install ser-algorithms
+```
+
+### From Conda
+
+```bash
+conda install -c conda-forge ser-algorithms
+```
+
+### Using Docker
+
+```bash
+# Pull the Docker image
+docker pull ghcr.io/bowenislandsong/ser:latest
+
+# Run Jupyter notebook
+docker run -p 8888:8888 ghcr.io/bowenislandsong/ser:latest
+
+# Or use it interactively
+docker run -it ghcr.io/bowenislandsong/ser:latest python
+```
 
 ### From source
 

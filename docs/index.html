@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SER - Machine Learning Algorithms Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .nav {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #764ba2;
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .install-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .install-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .install-card h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .install-card code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>SER</h1>
+        <p>Machine Learning Algorithms Library</p>
+        <p>Distributed and Federated SVD • SVD Embedding Regression</p>
+        <div style="margin-top: 2rem;">
+            <a href="https://github.com/Bowenislandsong/SER" class="btn">View on GitHub</a>
+            <a href="https://pypi.org/project/ser-algorithms/" class="btn">PyPI Package</a>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#quickstart">Quick Start</a></li>
+            <li><a href="#algorithms">Algorithms</a></li>
+            <li><a href="#api">API Reference</a></li>
+            <li><a href="https://github.com/Bowenislandsong/SER/tree/main/examples">Examples</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section" id="features">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🎯 SVD Embedding Regression</h3>
+                    <p>Combines Singular Value Decomposition with regression for dimensionality reduction and prediction. Perfect for high-dimensional data with correlated features.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌐 Distributed SVD</h3>
+                    <p>Scalable SVD implementation for data distributed across multiple nodes. Efficiently handles large datasets that don't fit in single machine memory.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Federated SVD</h3>
+                    <p>Privacy-preserving SVD that keeps data on local nodes while computing global decomposition. Ideal for healthcare, finance, and sensitive data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="installation">
+            <h2>Installation</h2>
+            
+            <div class="install-methods">
+                <div class="install-card">
+                    <h4>📦 PyPI (pip)</h4>
+                    <code>pip install ser-algorithms</code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Recommended for most users</p>
+                </div>
+                
+                <div class="install-card">
+                    <h4>🐍 Conda</h4>
+                    <code>conda install -c conda-forge ser-algorithms</code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">For conda environments</p>
+                </div>
+                
+                <div class="install-card">
+                    <h4>🐳 Docker</h4>
+                    <code>docker pull ghcr.io/bowenislandsong/ser:latest</code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Containerized environment</p>
+                </div>
+                
+                <div class="install-card">
+                    <h4>💻 From Source</h4>
+                    <code>git clone https://github.com/Bowenislandsong/SER.git</code>
+                    <code>pip install -e .</code>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">For development</p>
+                </div>
+            </div>
+
+            <h3>Requirements</h3>
+            <ul>
+                <li>Python >= 3.8</li>
+                <li>NumPy >= 1.20.0</li>
+                <li>SciPy >= 1.7.0</li>
+            </ul>
+        </section>
+
+        <section class="section" id="quickstart">
+            <h2>Quick Start</h2>
+
+            <h3>SVD Embedding Regression</h3>
+            <div class="code-block">
+                <pre>import numpy as np
+from ser import SVDEmbeddingRegression
+
+# Generate sample data
+X = np.random.randn(100, 10)
+y = np.random.randn(100)
+
+# Create and fit model
+model = SVDEmbeddingRegression(n_components=5)
+model.fit(X, y)
+
+# Make predictions
+y_pred = model.predict(X)
+
+# Get R^2 score
+score = model.score(X, y)
+print(f"R^2 Score: {score:.3f}")</pre>
+            </div>
+
+            <h3>Distributed SVD</h3>
+            <div class="code-block">
+                <pre>import numpy as np
+from ser import DistributedSVD
+
+# Simulate distributed data across 3 nodes
+X_node1 = np.random.randn(50, 10)
+X_node2 = np.random.randn(50, 10)
+X_node3 = np.random.randn(50, 10)
+
+# Create and fit model
+model = DistributedSVD(n_components=5)
+model.fit([X_node1, X_node2, X_node3])
+
+# Transform new data
+X_test = np.random.randn(20, 10)
+X_transformed = model.transform(X_test)
+
+# Get explained variance ratio
+variance_ratio = model.explained_variance_ratio()
+print(f"Explained variance: {variance_ratio}")</pre>
+            </div>
+
+            <h3>Federated SVD</h3>
+            <div class="code-block">
+                <pre>import numpy as np
+from ser import FederatedSVD
+
+# Simulate data on different nodes (data stays local)
+X_node1 = np.random.randn(50, 10)
+X_node2 = np.random.randn(50, 10)
+X_node3 = np.random.randn(50, 10)
+
+# Create and fit model (only statistics are shared)
+model = FederatedSVD(n_components=5, n_iterations=10)
+model.fit([X_node1, X_node2, X_node3])
+
+# Transform data
+X_test = np.random.randn(20, 10)
+X_transformed = model.transform(X_test)
+
+# Check privacy information
+privacy_info = model.get_privacy_budget()
+print(f"Privacy level: {privacy_info['privacy_level']}")</pre>
+            </div>
+        </section>
+
+        <section class="section" id="algorithms">
+            <h2>Algorithms</h2>
+
+            <h3>SVD Embedding Regression</h3>
+            <p>The SVD Embedding Regression (SER) algorithm combines the power of Singular Value Decomposition (SVD) for dimensionality reduction with linear regression. It's particularly useful when dealing with high-dimensional data where features might be correlated.</p>
+            
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Automatic dimensionality reduction</li>
+                <li>Handles multicollinearity</li>
+                <li>Efficient computation through SVD</li>
+                <li>Works with both single and multi-target regression</li>
+            </ul>
+
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>High-dimensional regression problems</li>
+                <li>Feature extraction and prediction</li>
+                <li>Data with correlated features</li>
+            </ul>
+
+            <h3>Distributed SVD</h3>
+            <p>The Distributed SVD algorithm enables computation of SVD on large datasets that are split across multiple nodes or partitions. It uses a block-based approach where each partition computes local SVD, and results are combined to produce the global decomposition.</p>
+
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Scalable to large datasets</li>
+                <li>Works with data distributed across nodes</li>
+                <li>Maintains numerical accuracy</li>
+                <li>Efficient parallel computation</li>
+            </ul>
+
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Big data analytics</li>
+                <li>Distributed computing environments</li>
+                <li>Data too large for single machine memory</li>
+            </ul>
+
+            <h3>Federated SVD</h3>
+            <p>The Federated SVD algorithm computes SVD while preserving data privacy. Raw data never leaves local nodes; instead, only aggregated statistics (means and covariances) are shared to compute the global decomposition.</p>
+
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Privacy-preserving computation</li>
+                <li>No raw data sharing</li>
+                <li>Suitable for sensitive data</li>
+                <li>Compliant with data governance policies</li>
+            </ul>
+
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Healthcare data analysis</li>
+                <li>Financial data processing</li>
+                <li>Multi-organization collaborations</li>
+                <li>Privacy-sensitive applications</li>
+            </ul>
+        </section>
+
+        <section class="section" id="api">
+            <h2>API Reference</h2>
+            <p>All classes follow the scikit-learn API conventions with <code>fit()</code>, <code>transform()</code>, <code>fit_transform()</code>, and <code>predict()</code> methods where applicable.</p>
+
+            <h3>SVDEmbeddingRegression</h3>
+            <div class="code-block">
+                <pre>SVDEmbeddingRegression(n_components=None)</pre>
+            </div>
+            <p><strong>Parameters:</strong></p>
+            <ul>
+                <li><code>n_components</code>: int or None - Number of components to keep. If None, all components are kept.</li>
+            </ul>
+            <p><strong>Methods:</strong></p>
+            <ul>
+                <li><code>fit(X, y)</code>: Fit the model to training data</li>
+                <li><code>transform(X)</code>: Transform data to reduced space</li>
+                <li><code>predict(X)</code>: Make predictions</li>
+                <li><code>fit_transform(X, y)</code>: Fit and transform in one step</li>
+                <li><code>score(X, y)</code>: Compute R^2 score</li>
+            </ul>
+
+            <h3>DistributedSVD</h3>
+            <div class="code-block">
+                <pre>DistributedSVD(n_components=None)</pre>
+            </div>
+            <p><strong>Parameters:</strong></p>
+            <ul>
+                <li><code>n_components</code>: int or None - Number of components to keep. If None, all components are kept.</li>
+            </ul>
+            <p><strong>Methods:</strong></p>
+            <ul>
+                <li><code>fit(X_partitions)</code>: Fit on distributed data (list of arrays)</li>
+                <li><code>transform(X)</code>: Transform data to reduced space</li>
+                <li><code>fit_transform(X_partitions)</code>: Fit and transform</li>
+                <li><code>inverse_transform(X_transformed)</code>: Transform back to original space</li>
+                <li><code>explained_variance_ratio()</code>: Get variance explained by components</li>
+            </ul>
+
+            <h3>FederatedSVD</h3>
+            <div class="code-block">
+                <pre>FederatedSVD(n_components=None, n_iterations=10)</pre>
+            </div>
+            <p><strong>Parameters:</strong></p>
+            <ul>
+                <li><code>n_components</code>: int or None - Number of components to keep. If None, all components are kept.</li>
+                <li><code>n_iterations</code>: int - Number of federated iterations to perform.</li>
+            </ul>
+            <p><strong>Methods:</strong></p>
+            <ul>
+                <li><code>fit(X_nodes)</code>: Fit on federated data (list of arrays)</li>
+                <li><code>transform(X)</code>: Transform data to reduced space</li>
+                <li><code>fit_transform(X_nodes)</code>: Fit and transform</li>
+                <li><code>inverse_transform(X_transformed)</code>: Transform back to original space</li>
+                <li><code>explained_variance_ratio()</code>: Get variance explained by components</li>
+                <li><code>get_privacy_budget()</code>: Get privacy information</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Contributing</h2>
+            <p>Contributions are welcome! Please feel free to submit a Pull Request on <a href="https://github.com/Bowenislandsong/SER">GitHub</a>.</p>
+        </section>
+
+        <section class="section">
+            <h2>License</h2>
+            <p>This project is licensed under the GNU General Public License v3.0 - see the <a href="https://github.com/Bowenislandsong/SER/blob/main/LICENSE">LICENSE</a> file for details.</p>
+        </section>
+
+        <section class="section">
+            <h2>Citation</h2>
+            <p>If you use this library in your research, please cite:</p>
+            <div class="code-block">
+                <pre>@software{ser_algorithms,
+  title = {SER: Machine Learning Algorithms Library},
+  author = {Bowenislandsong},
+  year = {2024},
+  url = {https://github.com/Bowenislandsong/SER}
+}</pre>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 SER Project. Licensed under GPL-3.0.</p>
+        <p>
+            <a href="https://github.com/Bowenislandsong/SER">GitHub</a> •
+            <a href="https://pypi.org/project/ser-algorithms/">PyPI</a> •
+            <a href="https://github.com/Bowenislandsong/SER/issues">Issues</a>
+        </p>
+    </footer>
+</body>
+</html>
