@@ -224,6 +224,13 @@ FederatedSVD(n_components=None, n_iterations=10)
 
 See the `examples/` directory for more detailed usage examples and tutorials.
 
+## Documentation
+
+- **[Full Documentation](https://bowenislandsong.github.io/SER/)** - Complete API reference and guides
+- **[Installation Guide](INSTALL.md)** - Detailed installation instructions for all methods
+- **[Release Guide](RELEASE.md)** - Guide for maintainers on releasing new versions
+- **[Changelog](CHANGELOG.md)** - History of changes and releases
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
