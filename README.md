@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![PyPI version](https://img.shields.io/badge/PyPI-v0.1.0-orange.svg)](https://pypi.org/project/ser-algorithms/)
+[![PyPI version](https://img.shields.io/pypi/v/ser-algorithms.svg)](https://pypi.org/project/ser-algorithms/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 A Python library providing advanced machine learning algorithms including distributed and federated implementations, designed with a scikit-learn compatible API. This library focuses on privacy-preserving and scalable machine learning algorithms suitable for big data and federated learning scenarios.
@@ -149,7 +149,7 @@ The algorithm performs the following steps:
 - Data with correlated or redundant features
 - Dimensionality reduction with supervised learning
 
-**References:** Based on Principal Component Regression [1] and Partial Least Squares methods [2].
+**References:** Based on SVD-based dimensionality reduction and regression techniques [1, 2].
 
 ### Distributed SVD
 
@@ -176,7 +176,7 @@ Given data distributed across N nodes: X = [X₁; X₂; ...; Xₙ]
 - Data too large for single machine memory
 - Parallel processing pipelines
 
-**References:** Based on tall-skinny QR decomposition [4] and distributed matrix factorization [3].
+**References:** Based on distributed matrix decomposition methods [2, 3].
 
 ### Federated SVD
 
@@ -186,7 +186,7 @@ The Federated SVD algorithm computes SVD while preserving data privacy. Raw data
 
 For data on N nodes where Xᵢ remains local:
 1. Each node computes local statistics: μᵢ = mean(Xᵢ), Cᵢ = XᵢᵀXᵢ
-2. Aggregate statistics: μglobal = Σwᵢμᵢ, Cglobal = ΣCᵢ
+2. Aggregate statistics: μglobal = (1/N)Σμᵢ, Cglobal = ΣCᵢ
 3. Compute SVD from covariance: Cglobal = VΣ²Vᵀ
 4. Iterate to refine components through federated averaging
 
@@ -204,7 +204,7 @@ For data on N nodes where Xᵢ remains local:
 - Privacy-sensitive applications
 - Cross-silo federated learning scenarios
 
-**References:** Based on federated averaging [5], federated machine learning [7], and privacy-preserving computation methods [6].
+**References:** Based on federated averaging [4], federated machine learning [6], and privacy-preserving computation methods [5].
 
 ## API Reference
 
@@ -340,21 +340,18 @@ The algorithms implemented in this library are based on the following research:
 
 ### Distributed Computing
 
-3. Kannan, R., Ishteva, M., & Park, H. (2014). Bounded matrix factorization for recommender system. *Knowledge and Information Systems*, 39(3), 491-511.
-   - Distributed matrix factorization techniques.
-
-4. Constantine, P. G., & Gleich, D. F. (2011). Tall and skinny QR factorizations in MapReduce architectures. *Proceedings of the Second International Workshop on MapReduce and its Applications*, 43-50.
-   - Block-based distributed decomposition methods.
+3. Constantine, P. G., & Gleich, D. F. (2011). Tall and skinny QR factorizations in MapReduce architectures. *Proceedings of the Second International Workshop on MapReduce and its Applications*, 43-50.
+   - Block-based distributed decomposition methods for large-scale matrices.
 
 ### Federated Learning
 
-5. McMahan, B., Moore, E., Ramage, D., Hampson, S., & y Arcas, B. A. (2017). Communication-efficient learning of deep networks from decentralized data. *Proceedings of the 20th International Conference on Artificial Intelligence and Statistics (AISTATS)*, 1273-1282.
+4. McMahan, B., Moore, E., Ramage, D., Hampson, S., & y Arcas, B. A. (2017). Communication-efficient learning of deep networks from decentralized data. *Proceedings of the 20th International Conference on Artificial Intelligence and Statistics (AISTATS)*, 1273-1282.
    - Foundational work on federated averaging and privacy-preserving computation.
 
-6. Kairouz, P., McMahan, H. B., et al. (2021). Advances and open problems in federated learning. *Foundations and Trends in Machine Learning*, 14(1-2), 1-210.
+5. Kairouz, P., McMahan, H. B., et al. (2021). Advances and open problems in federated learning. *Foundations and Trends in Machine Learning*, 14(1-2), 1-210.
    - Comprehensive survey of federated learning methods and privacy considerations.
 
-7. Yang, Q., Liu, Y., Chen, T., & Tong, Y. (2019). Federated machine learning: Concept and applications. *ACM Transactions on Intelligent Systems and Technology*, 10(2), 1-19.
+6. Yang, Q., Liu, Y., Chen, T., & Tong, Y. (2019). Federated machine learning: Concept and applications. *ACM Transactions on Intelligent Systems and Technology*, 10(2), 1-19.
    - Overview of federated machine learning architectures.
 
 ## Roadmap
