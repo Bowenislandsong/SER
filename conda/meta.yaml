@@ -1,0 +1,52 @@
+{% set name = "ser-algorithms" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ser_algorithms-{{ version }}.tar.gz
+  sha256: # Will be filled during build
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python >=3.8
+    - pip
+    - setuptools >=61.0
+    - wheel
+  run:
+    - python >=3.8
+    - numpy >=1.20.0
+    - scipy >=1.7.0
+
+test:
+  imports:
+    - ser
+    - ser.svd_embedding_regression
+    - ser.distributed_svd
+    - ser.federated_svd
+  commands:
+    - python -c "from ser import SVDEmbeddingRegression, DistributedSVD, FederatedSVD"
+
+about:
+  home: https://github.com/Bowenislandsong/SER
+  license: GPL-3.0-or-later
+  license_family: GPL
+  license_file: LICENSE
+  summary: A machine learning library with distributed and federated algorithms including SVD Embedding Regression
+  description: |
+    SER is a Python library providing advanced machine learning algorithms including 
+    distributed and federated implementations. It features SVD Embedding Regression, 
+    Distributed SVD, and Federated SVD algorithms, similar to scikit-learn.
+  doc_url: https://bowenislandsong.github.io/SER/
+  dev_url: https://github.com/Bowenislandsong/SER
+
+extra:
+  recipe-maintainers:
+    - Bowenislandsong

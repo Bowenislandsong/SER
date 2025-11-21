@@ -22,6 +22,8 @@ A Python library providing advanced machine learning algorithms including distri
 - [Roadmap](#roadmap)
 - [Support](#support)
 
+📖 **[Full Documentation](https://bowenislandsong.github.io/SER/)**
+
 ## Features
 
 - **SVD Embedding Regression (SER)**: Combines Singular Value Decomposition with regression for dimensionality reduction and prediction
@@ -34,6 +36,25 @@ A Python library providing advanced machine learning algorithms including distri
 
 ```bash
 pip install ser-algorithms
+```
+
+### From Conda
+
+```bash
+conda install -c conda-forge ser-algorithms
+```
+
+### Using Docker
+
+```bash
+# Pull the Docker image
+docker pull ghcr.io/bowenislandsong/ser:latest
+
+# Run Jupyter notebook
+docker run -p 8888:8888 ghcr.io/bowenislandsong/ser:latest
+
+# Or use it interactively
+docker run -it ghcr.io/bowenislandsong/ser:latest python
 ```
 
 ### From source
@@ -253,6 +274,13 @@ FederatedSVD(n_components=None, n_iterations=10)
 ## Examples
 
 See the `examples/` directory for more detailed usage examples and tutorials.
+
+## Documentation
+
+- **[Full Documentation](https://bowenislandsong.github.io/SER/)** - Complete API reference and guides
+- **[Installation Guide](INSTALL.md)** - Detailed installation instructions for all methods
+- **[Release Guide](RELEASE.md)** - Guide for maintainers on releasing new versions
+- **[Changelog](CHANGELOG.md)** - History of changes and releases
 
 ## Contributing
 

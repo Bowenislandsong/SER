@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include ser *.py
+recursive-include examples *.py
+recursive-exclude tests *
+recursive-exclude docs *
+recursive-exclude conda *
+exclude Dockerfile
+exclude .dockerignore
+exclude .gitignore
+global-exclude __pycache__
+global-exclude *.py[co]
